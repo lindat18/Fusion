@@ -17,6 +17,15 @@ public class ZombieController : MonoBehaviour {
         health = startingHealth;
     }
 
+    void OnCollisionEnter(Collision col)//called when collision occurs
+    {
+        //Debug.Log(col.collider is SphereCollider);
+        if (col.collider is SphereCollider)
+        {
+            health -= 20;
+        }
+    }
+
 	// Use this for initialization
 	void Start () {
         health = startingHealth;
@@ -28,7 +37,7 @@ public class ZombieController : MonoBehaviour {
 	}
 
     private void followPlayer(){
-        Vector3 playerPos = GameObject.Find("World").GetComponent<GameScript>().getPlayer().transform.position;
+        Vector3 playerPos = GameObject.Find("Player").transform.position;
 
         float magnitudeDistance = (playerPos - transform.position).magnitude;
         float newX = transform.position.x + (playerPos.x - transform.position.x)/magnitudeDistance * speed * Time.deltaTime;

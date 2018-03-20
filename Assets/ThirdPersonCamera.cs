@@ -21,7 +21,7 @@ public class ThirdPersonCamera : MonoBehaviour
     private float sensitivityX = 6.0f; //horizontal camera sensitivity
     private float sensitivityY = 3.0f; //vertical camera sensitivity
 
-    private void Start()
+    void Start()
     {
         camTransform = transform;
         cam = Camera.main; //set first enabled camera as main camera

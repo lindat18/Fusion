@@ -13,9 +13,14 @@ public class GameScript : MonoBehaviour {
 
         playerGenerator.createCombination(GameObject.Find("CubePlayer"), GameObject.Find("SpherePlayer"));
         player = playerGenerator.getPlayer();
+        setupPlayer();
 
-        GetComponent<ZombieGenerator>().GenerateNewZombies(10);
+        GetComponent<ZombieGenerator>().GenerateNewZombies(100000);
 	}
+
+    private void setupPlayer(){
+        player.GetComponent<PlayerController>().enabled = true;
+    }
 
     public GameObject getPlayer(){
         return player;

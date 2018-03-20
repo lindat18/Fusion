@@ -5,7 +5,7 @@ using UnityEngine;
 public class ZombieGenerator : MonoBehaviour {
 
     public GameObject zombie;
-    public int maxAliveAtOnce = 50;
+    public int maxAliveAtOnce = 10;
     List<GameObject> zombiesList;
 
     int numGeneratedTotal = 0; //number of zombies generated

@@ -318,8 +318,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BulletScript.cs" />
     <Compile Include="Assets\GameScript.cs" />
     <Compile Include="Assets\PlayerCombinationScript.cs" />
+    <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\Shoot.cs" />
+    <Compile Include="Assets\ThirdPersonCamera.cs" />
     <Compile Include="Assets\ZombieController.cs" />
     <Compile Include="Assets\ZombieGenerator.cs" />
   </ItemGroup>
