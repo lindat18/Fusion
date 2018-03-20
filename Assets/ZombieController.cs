@@ -15,6 +15,7 @@ public class ZombieController : MonoBehaviour {
     public void resetHealth()
     {
         health = startingHealth;
+        gameObject.GetComponent<Renderer>().material.color = new Color((float)health / startingHealth, 0f, 0f, 0f);
     }
 
     void OnCollisionEnter(Collision col)//called when collision occurs
@@ -23,13 +24,14 @@ public class ZombieController : MonoBehaviour {
         if (col.collider is SphereCollider)
         {
             health -= 20;
+            gameObject.GetComponent<Renderer>().material.color = new Color((float)health/startingHealth, 0f, 0f, 0f);
         }
     }
 
 	// Use this for initialization
 	void Start () {
-        health = startingHealth;
-	}
+        resetHealth();
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {

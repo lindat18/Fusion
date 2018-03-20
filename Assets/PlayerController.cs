@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public Vector3 startPos = new Vector3(0, 0, 0);
     private bool canJump = true;
 
+    int health = 100;
+
     Rigidbody body;
 
     void Start()
@@ -25,6 +27,23 @@ public class PlayerController : MonoBehaviour
         enabled = false;
 
         transform.position = startPos;
+        updateHealth();
+    }
+
+    void OnCollisionEnter(Collision col)//called when collision occurs
+    {
+        //Debug.Log(col.collider is SphereCollider);
+        if (col.collider is CapsuleCollider)
+        {
+            health -= 20;
+            updateHealth();
+        }
+    }
+
+    void updateHealth(){
+        var healthText = GameObject.Find("Health_Text").GetComponent<UnityEngine.UI.Text>();
+        healthText.color = new Color(1, 0, 0);
+        healthText.text = "Health: " + health;
     }
 
     // FixedUpdate is called once per physics-frame
