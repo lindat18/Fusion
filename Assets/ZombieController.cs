@@ -28,11 +28,11 @@ public class ZombieController : MonoBehaviour {
 	}
 
     private void followPlayer(){
-        Vector3 playerPos = GameObject.Find("Player").transform.position;
+        Vector3 playerPos = GameObject.Find("World").GetComponent<GameScript>().getPlayer().transform.position;
 
         float magnitudeDistance = (playerPos - transform.position).magnitude;
-        float newX = (playerPos.x - transform.position.x)/magnitudeDistance * speed * Time.deltaTime;
-        float newZ = (playerPos.z - transform.position.z) / magnitudeDistance * speed * Time.deltaTime;;
+        float newX = transform.position.x + (playerPos.x - transform.position.x)/magnitudeDistance * speed * Time.deltaTime;
+        float newZ = transform.position.z + (playerPos.z - transform.position.z) / magnitudeDistance * speed * Time.deltaTime;;
 
         transform.position = new Vector3(newX, transform.localScale.y, newZ);
     }

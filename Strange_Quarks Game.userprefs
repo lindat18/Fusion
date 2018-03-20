@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{F15433EA-3F90-2E82-4080-786255633F69}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ZombieGenerator.cs">
     <Files>
-      <File FileName="Assets/ZombieGenerator.cs" Line="10" Column="5" />
-      <File FileName="Assets/ZombieController.cs" Line="8" Column="27" />
-      <File FileName="Assets/PlayerCombinationScript.cs" Line="38" Column="50" />
-      <File FileName="Assets/GameScript.cs" Line="7" Column="29" />
+      <File FileName="Assets/ZombieGenerator.cs" Line="32" Column="5" />
+      <File FileName="Assets/ZombieController.cs" Line="27" Column="9" />
+      <File FileName="Assets/PlayerCombinationScript.cs" Line="16" Column="17" />
+      <File FileName="Assets/GameScript.cs" Line="17" Column="62" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

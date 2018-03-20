@@ -10,8 +10,8 @@ public class ZombieGenerator : MonoBehaviour {
 
     int numGeneratedTotal = 0; //number of zombies generated
 
-    int numToGenerate;//# of zombies to generate this round
-    int numGeneratedRecent;//num generated since last call to "GenerateNewZombies"
+    int numToGenerate = 0;//# of zombies to generate this round
+    int numGeneratedRecent = 0;//num generated since last call to "GenerateNewZombies"
 
 
     // Use this for initialization
@@ -19,7 +19,7 @@ public class ZombieGenerator : MonoBehaviour {
         
     }
 
-    private void GenerateNewZombies(int amount) //resets list and generates a new group
+    public void GenerateNewZombies(int amount) //resets list and generates a new group
     {
         numGeneratedRecent = 0;
         this.numToGenerate = amount;
@@ -33,25 +33,25 @@ public class ZombieGenerator : MonoBehaviour {
     private void spawnZombie(){ // just initialized; not active just yet
         GameObject obj = (GameObject)Instantiate(zombie);
         obj.SetActive(false);
-        obj.transform.position = new Vector3(0, obj.transform.localScale.y, 0); //spawns at center of world
-        zombiesList.Add(zombie);
+        zombiesList.Add(obj);
     }
 
     // Update is called once per frame
-    void FizedUpdate()
+    void FixedUpdate()
     {
         HandleZombiePooling();
     }
 
     private void HandleZombiePooling()
     {
+        //Debug.Log(maxAliveAtOnce + " " + numToGenerate + " " + numGeneratedRecent);
         for (int i = 0; i < maxAliveAtOnce && i < numToGenerate && numGeneratedRecent < numToGenerate; i++)
         {
             if (!zombiesList[i].activeInHierarchy)
             {
                 numGeneratedRecent++;
                 numGeneratedTotal++;
-                zombiesList[i].transform.position = new Vector3(0, zombiesList[i].transform.localScale.y, 0);
+                zombiesList[i].transform.position = new Vector3(Random.Range(-10, 10), zombiesList[i].transform.localScale.y, Random.Range(-10, 10));
                 zombiesList[i].GetComponent<ZombieController>().resetHealth();
                 zombiesList[i].SetActive(true);
                 break;
