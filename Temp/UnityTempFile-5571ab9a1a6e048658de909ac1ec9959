@@ -184,9 +184,12 @@
 -define:UNITY_TEAM_LICENSE
 -define:ENABLE_VSTU
 'Assets/BulletScript.cs'
+'Assets/ButtonScript.cs'
 'Assets/GameScript.cs'
 'Assets/PlayerCombinationScript.cs'
 'Assets/PlayerController.cs'
+'Assets/PlayerInfoMessageScript.cs'
+'Assets/PlayerSelectionScreenListener.cs'
 'Assets/Shoot.cs'
 'Assets/ThirdPersonCamera.cs'
 'Assets/ZombieController.cs'

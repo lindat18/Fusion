@@ -13,7 +13,7 @@ public class Shoot : MonoBehaviour
 
     public Rigidbody rb;
     public float fireSpeed = 50f;
-    public float bulletCooldown = 0.1f;//seconds
+    public float bulletCooldown = 0f;//seconds
     private float lastBullet = 0;
 
     void Start()
@@ -27,6 +27,7 @@ public class Shoot : MonoBehaviour
             balls.Add(obj);
         }
 
+        this.enabled = false;
     }
 
     private void Update()

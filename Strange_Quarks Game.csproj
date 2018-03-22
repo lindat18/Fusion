@@ -319,9 +319,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BulletScript.cs" />
+    <Compile Include="Assets\ButtonScript.cs" />
     <Compile Include="Assets\GameScript.cs" />
     <Compile Include="Assets\PlayerCombinationScript.cs" />
     <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\PlayerInfoMessageScript.cs" />
+    <Compile Include="Assets\PlayerSelectionScreenListener.cs" />
     <Compile Include="Assets\Shoot.cs" />
     <Compile Include="Assets\ThirdPersonCamera.cs" />
     <Compile Include="Assets\ZombieController.cs" />

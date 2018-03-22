@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     //https://www.youtube.com/watch?v=NgV6iJC_F3s
 
     public float speed = 10;
-    public float jumpVelocity = 10;
+    public float jumpVelocity = 2;
     public Vector3 startPos = new Vector3(0, 0, 0);
     private bool canJump = true;
 
@@ -23,8 +23,6 @@ public class PlayerController : MonoBehaviour
             body = GetComponent<Rigidbody>();
         else
             Debug.LogError("no rigidbody attached");
-
-        enabled = false;
 
         transform.position = startPos;
         updateHealth();

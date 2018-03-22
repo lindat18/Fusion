@@ -9,18 +9,17 @@ public class GameScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        playerGenerator = new PlayerCombinationScript();
+        playerGenerator = gameObject.AddComponent<PlayerCombinationScript>();
 
-        playerGenerator.createCombination(GameObject.Find("CubePlayer"), GameObject.Find("SpherePlayer"));
+        GameObject.Find("Player").GetComponent<Shoot>().enabled = true;
+
+        PlayerSelectionScreenListener listener = GameObject.Find("PlayerSelectionScreen").GetComponent<PlayerSelectionScreenListener>();
+        playerGenerator.createCombination(GameObject.Find(listener.getPlayer1()).gameObject, GameObject.Find(listener.getPlayer2()).gameObject);
         player = playerGenerator.getPlayer();
-        setupPlayer();
+        player.AddComponent<PlayerController>();
 
         GetComponent<ZombieGenerator>().GenerateNewZombies(100000);
 	}
-
-    private void setupPlayer(){
-        player.GetComponent<PlayerController>().enabled = true;
-    }
 
     public GameObject getPlayer(){
         return player;
