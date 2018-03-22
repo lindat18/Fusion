@@ -52,7 +52,7 @@ public class ZombieGenerator : MonoBehaviour {
                 numGeneratedRecent++;
                 numGeneratedTotal++;
                 zombiesList[i].transform.position = new Vector3(Random.Range(-20, 20), zombiesList[i].transform.localScale.y, Random.Range(-10, 10));
-                zombiesList[i].GetComponent<ZombieController>().resetHealth();
+                zombiesList[i].GetComponent<ZombieController>().reset();
                 zombiesList[i].SetActive(true);
                 break;
             }

@@ -3,21 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour {
+    float spawnTime;
 
-    private void OnEnable()
-    {
-        transform.GetComponent<Rigidbody>().WakeUp();
-        Invoke("HideBullet", 1.5f);
+    public void startBullet(){
+        spawnTime = Time.time;
     }
 
-    void HideBullet()
-    {
-        transform.GetComponent<Rigidbody>().Sleep();
-        gameObject.SetActive(false);
-    }
-
-    private void OnDisable()
-    {
-        CancelInvoke();
+    public float getSpawnTime(){
+        return spawnTime;
     }
 }

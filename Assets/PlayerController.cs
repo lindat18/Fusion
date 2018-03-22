@@ -33,14 +33,15 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter(Collision col)//called when collision occurs
     {
         //Debug.Log(col.collider is SphereCollider);
-        if (col.collider is CapsuleCollider)
+        if (col.gameObject.tag.Equals("Zombie"))
         {
             health -= 20;
             updateHealth();
         }
     }
 
-    void updateHealth(){
+    void updateHealth()
+    {
         var healthText = GameObject.Find("Health_Text").GetComponent<UnityEngine.UI.Text>();
         healthText.color = new Color(1, 0, 0);
         healthText.text = "Health: " + health;
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
     // FixedUpdate is called once per physics-frame
     void FixedUpdate()
     {
-        //Source: https://answers.unity.com/questions/1386777/get-origin-of-plane-in-world-coordinates.html
+        //Source: https://answers.unity.com/questions/1386777/get-origin-of-plane-in-world-coordinates.htmla
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hit = new RaycastHit();
@@ -76,6 +77,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
+        body.velocity = new Vector3(0, body.velocity.y, 0);
         body.velocity += transform.forward * Input.GetAxis("Vertical") * speed;
         body.velocity += transform.right * Input.GetAxis("Horizontal") * speed;
     }
@@ -92,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
         if (canJump == true)
         {
-           
+
 
             if (Input.GetKey("space"))
             {

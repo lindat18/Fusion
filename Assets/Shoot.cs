@@ -12,7 +12,9 @@ public class Shoot : MonoBehaviour
     List<GameObject> balls;
 
     public Rigidbody rb;
-    private float fireSpeed = 50f;
+    public float fireSpeed = 50f;
+    public float bulletCooldown = 0.1f;//seconds
+    private float lastBullet = 0;
 
     void Start()
     {
@@ -29,27 +31,39 @@ public class Shoot : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             Fire();
+        }
+
+        for (int i = 0; i < balls.Count; i++)
+        {
+            if (Time.time - balls[i].GetComponent<BulletScript>().getSpawnTime() > 2) // bullet lasts 2 seconds
+            {
+                balls[i].GetComponent<Rigidbody>().velocity = new Vector3();//set bullet velocity to zero
+                balls[i].SetActive(false);
+            }
         }
     }
     void Fire()
     {
-        for (int i = 0; i < balls.Count; i++)
+        if (Time.time - lastBullet > bulletCooldown)
         {
-            if (!balls[i].activeInHierarchy)
+            for (int i = 0; i < balls.Count; i++)
             {
-                balls[i].transform.position = transform.position + new Vector3(0, 1.25f, 0) + (transform.forward * 1f);
-                balls[i].transform.rotation = transform.rotation;
-                balls[i].SetActive(true);
-                Rigidbody tempRb = balls[i].GetComponent<Rigidbody>();
-                tempRb.AddForce((transform.forward * fireSpeed), ForceMode.Impulse);
-                break;
+                if (!balls[i].activeInHierarchy)
+                {
+                    balls[i].GetComponent<BulletScript>().startBullet();
+                    balls[i].transform.position = transform.position + new Vector3(0, 1.25f, 0) + (transform.forward * 1f);
+                    balls[i].transform.rotation = transform.rotation;
+                    balls[i].SetActive(true);
+                    Rigidbody tempRb = balls[i].GetComponent<Rigidbody>();
+                    tempRb.AddForce((transform.forward * fireSpeed), ForceMode.Impulse);
+                    lastBullet = Time.time;
+                    break;
+                }
             }
         }
-
     }
-
 }
 
