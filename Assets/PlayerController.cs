@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     int health = 100;
 
+
+
     Rigidbody body;
 
     void Start()
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("no rigidbody attached");
 
         transform.position = startPos;
+ 
         updateHealth();
     }
 
@@ -44,6 +47,8 @@ public class PlayerController : MonoBehaviour
         healthText.color = new Color(1, 0, 0);
         healthText.text = "Health: " + health;
     }
+
+  
 
     // FixedUpdate is called once per physics-frame
     void FixedUpdate()

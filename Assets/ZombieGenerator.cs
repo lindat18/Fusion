@@ -13,10 +13,11 @@ public class ZombieGenerator : MonoBehaviour {
     int numToGenerate = 0;//# of zombies to generate this round
     int numGeneratedRecent = 0;//num generated since last call to "GenerateNewZombies"
 
+    int score = 0;
+    int scoreIncrease = 100;
 
     // Use this for initialization
     void Start(){
-        
     }
 
     public void GenerateNewZombies(int amount) //resets list and generates a new group
@@ -63,9 +64,18 @@ public class ZombieGenerator : MonoBehaviour {
             if (zombiesList[i].GetComponent<ZombieController>().getHealth() <= 0) // remove platform after player has gone 50 units past it
             {
                 zombiesList[i].SetActive(false);
+                
+                //currently, keeps track of score but doesn't show up until first collision
+                var scoreText = GameObject.Find("Score_Text").GetComponent<UnityEngine.UI.Text>();
+                scoreText.color = new Color(1, 0, 0);
+                score += scoreIncrease;
+                scoreText.text = "Score: " + score;
+                
             }
         }
     }
+
+   
 
     private void RemovePlatforms()
     {

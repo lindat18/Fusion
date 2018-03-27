@@ -11,7 +11,8 @@ public class ZombieController : MonoBehaviour
 
     public float maxForce;
     public float minForce;
-    private float force; 
+    private float force;
+
 
     public int getHealth()
     {
@@ -34,6 +35,8 @@ public class ZombieController : MonoBehaviour
             gameObject.GetComponent<Renderer>().material.color = new Color((float)health / startingHealth, 0f, 0f, 0f);
         }
     }
+
+
 
     // Use this for initialization
     void Start()
