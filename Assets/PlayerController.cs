@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 10;
     public float jumpVelocity = 2;
-    public Vector3 startPos = new Vector3(0, 0, 0);
+    public Vector3 startPos = new Vector3(0, 5, 0);
     private bool canJump = true;
 
     int health = 100;
