@@ -54,6 +54,7 @@
      <Compile Include="Assets\BulletScript.cs" />
      <Compile Include="Assets\ButtonScript.cs" />
      <Compile Include="Assets\GameScript.cs" />
+     <Compile Include="Assets\LowPolyWater_Pack\Scripts\LowPolyWater.cs" />
      <Compile Include="Assets\PlayerCombinationScript.cs" />
      <Compile Include="Assets\PlayerController.cs" />
      <Compile Include="Assets\PlayerInfoMessageScript.cs" />
@@ -101,6 +102,7 @@
      <None Include="Assets\ProCore\Polybrush\Shader\z_TextureBlendMobile.shader" />
      <None Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />
      <None Include="Assets\ProCore\Polybrush\README.txt" />
+     <None Include="Assets\LowPolyWater_Pack\LowPoly Island\Credits.txt" />
      <None Include="Assets\ProCore\Polybrush\Shader\z_TriPlanarBlendLegacy_SfSrc.shader" />
      <None Include="Assets\ProCore\Polybrush\Shader\z_TextureBlendHeight.shader" />
      <None Include="Assets\ProCore\Polybrush\Shader\z_TextureBlendWithVertexColor.shader" />
@@ -116,6 +118,7 @@
      <None Include="Assets\ProCore\Polybrush\Shader\z_TriPlanarBlendLegacy.shader" />
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_UnlitSolidColor.shader" />
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_ReferenceUnlit.shader" />
+     <None Include="Assets\LowPolyWater_Pack\Shaders\WaterShaded.shader" />
      <None Include="Assets\ProCore\Polybrush\Shader\z_TextureBlendModulate.shader" />
      <None Include="Assets\ProCore\ProBuilder\Shader\DiffuseTextureBlend.shader" />
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_StandardVertexColor.shader" />
