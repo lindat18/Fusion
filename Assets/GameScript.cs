@@ -17,7 +17,7 @@ public class GameScript : MonoBehaviour {
         playerGenerator.createCombination(GameObject.Find(listener.getPlayer1()).gameObject, GameObject.Find(listener.getPlayer2()).gameObject);
         player = playerGenerator.getPlayer();
         player.AddComponent<PlayerController>();
-
+        
         GetComponent<ZombieGenerator>().GenerateNewZombies(100000);
 	}
 

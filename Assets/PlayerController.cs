@@ -15,7 +15,9 @@ public class PlayerController : MonoBehaviour
 
     int health = 100;
 
-
+    //public AudioClip damageSoundClip;
+    public AudioSource damageSoundSource;
+    public AudioClip damageSoundClip;
 
     Rigidbody body;
 
@@ -27,7 +29,12 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("no rigidbody attached");
 
         transform.position = startPos;
+
  
+        damageSoundSource = GameObject.Find("PlayerHit").GetComponent<AudioSource>();
+        //damageSoundClip = damageSoundSource.GetComponent<AudioClip>();
+        
+       
         updateHealth();
     }
 
@@ -37,6 +44,8 @@ public class PlayerController : MonoBehaviour
         if (col.gameObject.tag.Equals("Zombie"))
         {
             health -= 20;
+            
+            damageSoundSource.Play(); //plays damage taken sound
             updateHealth();
         }
     }

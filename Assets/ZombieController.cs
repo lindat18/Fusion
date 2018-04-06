@@ -13,6 +13,8 @@ public class ZombieController : MonoBehaviour
     public float minForce;
     private float force;
 
+    public AudioClip damageSoundClip;
+    public AudioSource damageSoundSource;
 
     public int getHealth()
     {
@@ -32,6 +34,7 @@ public class ZombieController : MonoBehaviour
         if (col.gameObject.tag.Equals("Bullet"))
         {
             health -= 20;
+            damageSoundSource.Play(); //plays damage taken sound
             gameObject.GetComponent<Renderer>().material.color = new Color((float)health / startingHealth, 0f, 0f, 0f);
         }
     }
@@ -41,7 +44,9 @@ public class ZombieController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        damageSoundSource.clip = damageSoundClip;
         reset();
+        
     }
 
     // Update is called once per frame
