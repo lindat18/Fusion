@@ -114,7 +114,9 @@
      <None Include="Assets\ProCore\Polybrush\Shader\z_BaseWithDecals.shader" />
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_FaceHighlight.shader" />
      <None Include="Assets\ProCore\Polybrush\ThirdPartyLicenses.txt" />
+     <None Include="Assets\Foliage\Free Low Poly Desert Pack\Materials\Shaders\Vertex_Color_Unlit.shader" />
      <None Include="Assets\ProCore\Polybrush\Shader\z_TextureBlendMobile_SfSrc.shader" />
+     <None Include="Assets\Foliage\Free Low Poly Desert Pack\Materials\Shaders\Vertex_Color_Basic.shader" />
      <None Include="Assets\ProCore\Polybrush\Shader\z_TriPlanarBlendLegacy.shader" />
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_UnlitSolidColor.shader" />
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_ReferenceUnlit.shader" />
@@ -135,6 +137,7 @@
      <None Include="Assets\ProCore\Polybrush\Shader\z_StandardVertexColor.shader" />
      <None Include="Assets\ProCore\Polybrush\Shader\Noise.cginc" />
      <None Include="Assets\ProCore\ProBuilder\About\Font\SIL Open Font License.txt" />
+     <None Include="Assets\Foliage\BrokenVector\FreeLowPolyPack\readme.txt" />
      <None Include="Assets\ProCore\ProBuilder\About\pc_AboutEntry_ProBuilder.txt" />
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_VertexShader.shader" />
      <None Include="Assets\ProCore\Polybrush\Shader\z_DiffuseVertexColor.shader" />
