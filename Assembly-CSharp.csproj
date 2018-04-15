@@ -95,6 +95,7 @@
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Vertex Colors\HighlightNearestFace.cs" />
      <Compile Include="Assets\Shoot.cs" />
      <Compile Include="Assets\ThirdPersonCamera.cs" />
+     <Compile Include="Assets\WorldActivater.cs" />
      <Compile Include="Assets\ZombieController.cs" />
      <Compile Include="Assets\ZombieGenerator.cs" />
      <None Include="Assets\ProCore\Polybrush\Shader\z_TriPlanarBlend_SfSrc.shader" />

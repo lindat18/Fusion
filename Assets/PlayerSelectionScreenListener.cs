@@ -9,6 +9,8 @@ public class PlayerSelectionScreenListener : MonoBehaviour {
     string player1;
     string player2;
 
+
+
     public string getPlayer1()
     {
         if (player1 != null)
@@ -32,6 +34,8 @@ public class PlayerSelectionScreenListener : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         initButtons();
+
+
 	}
 
     private void initButtons(){
@@ -66,5 +70,12 @@ public class PlayerSelectionScreenListener : MonoBehaviour {
 
     void startGame(){
         GameObject.Find("World").AddComponent<GameScript>();
+
+
+
+
+
+
+
     }
 }
