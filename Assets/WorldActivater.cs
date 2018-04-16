@@ -10,29 +10,26 @@ public class WorldActivater : MonoBehaviour {
 	public GameObject GrassWorld;
 	public GameObject DesertWorld;
 
+    private GameObject activatedWorld;
+
 	// Use this for initialization
 	void Start () {
 		number = Random.Range(0,4);
-		print (number);
-
 
 		if (number == 1) {
-			GrassWorld.SetActive (false);
-			DesertWorld.SetActive (false);
-			Debug.Log ("Snow");
-
+            activatedWorld = SnowWorld;
 		} else if (number == 2) {
-			SnowWorld.SetActive (false);
-			DesertWorld.SetActive (false);
-			Debug.Log ("Grass");
-
+            activatedWorld = GrassWorld;
 		} else {
-			SnowWorld.SetActive (false);
-			GrassWorld.SetActive (false);
-			Debug.Log ("Desert");
-
+            activatedWorld = DesertWorld;
 		}
+
+        activatedWorld.SetActive(true);
 	}
+
+    public GameObject getActiveWorld(){
+        return activatedWorld;
+    }
 	
 	// Update is called once per frame
 	void Update () {

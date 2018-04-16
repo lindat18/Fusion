@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio for Mac
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strange_Quarks Game", "Strange_Quarks Game.csproj", "{F15433EA-3F90-2E82-4080-786255633F69}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strange_Quarks Game.Editor", "Strange_Quarks Game.Editor.csproj", "{DC04087F-D907-3D35-51A5-CBFC9C4AFA30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{F15433EA-3F90-2E82-4080-786255633F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F15433EA-3F90-2E82-4080-786255633F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F15433EA-3F90-2E82-4080-786255633F69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC04087F-D907-3D35-51A5-CBFC9C4AFA30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC04087F-D907-3D35-51A5-CBFC9C4AFA30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC04087F-D907-3D35-51A5-CBFC9C4AFA30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC04087F-D907-3D35-51A5-CBFC9C4AFA30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

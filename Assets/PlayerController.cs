@@ -66,21 +66,25 @@ public class PlayerController : MonoBehaviour
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hit = new RaycastHit();
+        int layerMask = 1 << 8;
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
-            Vector3 mousePos = hit.point; //mouse position in world coordinates
-            Vector3 playerPos = transform.position;
-            float deltaX = mousePos.x - playerPos.x;
-            float deltaZ = mousePos.z - playerPos.z;
+            if (hit.collider.gameObject.tag.Equals("WorldMesh"))
+            {
+                Vector3 mousePos = hit.point; //mouse position in world coordinates
+                Vector3 playerPos = transform.position;
+                float deltaX = mousePos.x - playerPos.x;
+                float deltaZ = mousePos.z - playerPos.z;
 
-            //Debug.Log(mousePos.x + " " + mousePos.z);
+                //Debug.Log(mousePos.x + " " + mousePos.z);
 
-            Vector3 direction = new Vector3(deltaX, 0, deltaZ);
+                Vector3 direction = new Vector3(deltaX, 0, deltaZ);
 
-            transform.forward = direction;
-            //transform.rotation = new Quaternion(0, 0, Mathf.Tan(deltaX / deltaZ), 0);
-            //Debug.Log(transform.rotation);
+                transform.forward = direction;
+                //transform.rotation = new Quaternion(0, 0, Mathf.Tan(deltaX / deltaZ), 0);
+                //Debug.Log(transform.rotation);
+            }
         }
 
         HandleJump();

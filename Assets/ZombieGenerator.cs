@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieGenerator : MonoBehaviour {
+public class ZombieGenerator : MonoBehaviour
+{
 
     public GameObject zombie;
     public int maxAliveAtOnce = 10;
+    public Vector3 spawnPos;
     List<GameObject> zombiesList;
 
     int numGeneratedTotal = 0; //number of zombies generated
@@ -17,7 +19,8 @@ public class ZombieGenerator : MonoBehaviour {
     int scoreIncrease = 100;
 
     // Use this for initialization
-    void Start(){
+    void Start()
+    {
     }
 
     public void GenerateNewZombies(int amount) //resets list and generates a new group
@@ -31,7 +34,8 @@ public class ZombieGenerator : MonoBehaviour {
         }
     }
 
-    private void spawnZombie(){ // just initialized; not active just yet
+    private void spawnZombie()
+    { // just initialized; not active just yet
         GameObject obj = (GameObject)Instantiate(zombie);
         obj.SetActive(false);
         zombiesList.Add(obj);
@@ -52,7 +56,7 @@ public class ZombieGenerator : MonoBehaviour {
             {
                 numGeneratedRecent++;
                 numGeneratedTotal++;
-                zombiesList[i].transform.position = new Vector3(Random.Range(-30, 20), zombiesList[i].transform.localScale.y, Random.Range(-30, 10));
+                zombiesList[i].transform.position = new Vector3(spawnPos.x + Random.Range(-30, 20), spawnPos.y + zombiesList[i].transform.localScale.y, spawnPos.z + Random.Range(-30, 10));
                 zombiesList[i].GetComponent<ZombieController>().reset();
                 zombiesList[i].SetActive(true);
                 break;
@@ -64,18 +68,18 @@ public class ZombieGenerator : MonoBehaviour {
             if (zombiesList[i].GetComponent<ZombieController>().getHealth() <= 0) // remove platform after player has gone 50 units past it
             {
                 zombiesList[i].SetActive(false);
-                
+
                 //currently, keeps track of score but doesn't show up until first collision
                 var scoreText = GameObject.Find("Score_Text").GetComponent<UnityEngine.UI.Text>();
                 scoreText.color = new Color(1, 0, 0);
                 score += scoreIncrease;
                 scoreText.text = "Score: " + score;
-                
+
             }
         }
     }
 
-   
+
 
     private void RemovePlatforms()
     {

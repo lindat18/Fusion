@@ -9,8 +9,6 @@ public class PlayerSelectionScreenListener : MonoBehaviour {
     string player1;
     string player2;
 
-
-
     public string getPlayer1()
     {
         if (player1 != null)
@@ -65,6 +63,7 @@ public class PlayerSelectionScreenListener : MonoBehaviour {
             player2 = pressedButtons[1].GetComponent<ButtonScript>().getPlayerString();
             startGame();
             Destroy(GameObject.Find("PlayerSelectionScreen"));
+            this.enabled = false;
         }
 	}
 
@@ -72,13 +71,6 @@ public class PlayerSelectionScreenListener : MonoBehaviour {
         GameObject.Find("World").AddComponent<GameScript>();
         var scoreText = GameObject.Find("Score_Text").GetComponent<UnityEngine.UI.Text>();
         scoreText.color = new Color(1, 0, 0);
-        scoreText.text = "Score: 0" ; //this is kind of a hack fix?? the score text wasn't showing up at game start
-        
-
-
-
-
-
-
+        scoreText.text = "Score: 0" ;
     }
 }
