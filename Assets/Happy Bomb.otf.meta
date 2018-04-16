@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 13ea2bc5c0356f14e958d51a593122a0
-timeCreated: 1523845703
+timeCreated: 1523848389
 licenseType: Free
 TrueTypeFontImporter:
   externalObjects: {}
@@ -13,8 +13,7 @@ TrueTypeFontImporter:
   fontName: Happy Bomb
   fontNames:
   - Happy Bomb
-  fallbackFontReferences:
-  - {fileID: 12800000, guid: 6438367b417c864448ba87cefeb1546e, type: 3}
+  fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

@@ -15,9 +15,9 @@ public class ThirdPersonCamera : MonoBehaviour
 
     public Camera cam;
 
-    private float distance = 10.0f; //distance from player
+    private float distance = 8.0f; //distance from player
     private float currentX = 0.0f;
-    private float currentY = 0.0f;
+    private float currentY = 0.5f;
     private float sensitivityX = 6.0f; //horizontal camera sensitivity
     private float sensitivityY = 3.0f; //vertical camera sensitivity
 
@@ -30,9 +30,9 @@ public class ThirdPersonCamera : MonoBehaviour
     private void Update()
     {
         currentX += Input.GetAxis("Mouse X") * sensitivityX;
-        currentY -= Input.GetAxis("Mouse Y") * sensitivityY;
+       // currentY -= Input.GetAxis("Mouse Y") * sensitivityY;
 
-        currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX); //restrict camera y-rotation
+       // currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX); //restrict camera y-rotation
 
 
     }

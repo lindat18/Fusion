@@ -70,7 +70,10 @@ public class PlayerSelectionScreenListener : MonoBehaviour {
 
     void startGame(){
         GameObject.Find("World").AddComponent<GameScript>();
-
+        var scoreText = GameObject.Find("Score_Text").GetComponent<UnityEngine.UI.Text>();
+        scoreText.color = new Color(1, 0, 0);
+        scoreText.text = "Score: 0" ; //this is kind of a hack fix?? the score text wasn't showing up at game start
+        
 
 
 
