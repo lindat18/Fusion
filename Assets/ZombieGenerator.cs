@@ -6,7 +6,7 @@ public class ZombieGenerator : MonoBehaviour
 {
 
     public GameObject zombie;
-    public int maxAliveAtOnce = 10;
+    public int maxAliveAtOnce = 5;
     public Vector3 spawnPos;
     List<GameObject> zombiesList;
 
@@ -14,9 +14,14 @@ public class ZombieGenerator : MonoBehaviour
 
     int numToGenerate = 0;//# of zombies to generate this round
     int numGeneratedRecent = 0;//num generated since last call to "GenerateNewZombies"
+    int numKilledRecent = 0;
 
     int score = 0;
     int scoreIncrease = 100;
+
+    public int zombiesRemaining(){
+        return numToGenerate - numKilledRecent;
+    }
 
     // Use this for initialization
     void Start()
@@ -26,6 +31,7 @@ public class ZombieGenerator : MonoBehaviour
     public void GenerateNewZombies(int amount) //resets list and generates a new group
     {
         numGeneratedRecent = 0;
+        numKilledRecent = 0;
         this.numToGenerate = amount;
         zombiesList = new List<GameObject>();
         for (int i = 0; i < maxAliveAtOnce && i < amount; i++)
@@ -65,10 +71,10 @@ public class ZombieGenerator : MonoBehaviour
 
         for (int i = 0; i < maxAliveAtOnce && i < numToGenerate; i++)
         {
-            if (zombiesList[i].GetComponent<ZombieController>().getHealth() <= 0) // remove platform after player has gone 50 units past it
+            if (zombiesList[i].activeInHierarchy && zombiesList[i].GetComponent<ZombieController>().getHealth() <= 0) // remove platform after player has gone 50 units past it
             {
                 zombiesList[i].SetActive(false);
-
+                numKilledRecent++;
                 //currently, keeps track of score but doesn't show up until first collision
                 var scoreText = GameObject.Find("Score_Text").GetComponent<UnityEngine.UI.Text>();
                 scoreText.color = new Color(1, 0, 0);
@@ -94,6 +100,7 @@ public class ZombieGenerator : MonoBehaviour
         numGeneratedTotal = 0;
         numGeneratedRecent = 0;
         numToGenerate = 0;
+        numKilledRecent = 0;
         zombiesList = null;
     }
 }
