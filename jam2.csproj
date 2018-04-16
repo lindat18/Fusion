@@ -347,10 +347,14 @@
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Vertex Colors\HighlightNearestFace.cs" />
     <Compile Include="Assets\Shoot.cs" />
     <Compile Include="Assets\ThirdPersonCamera.cs" />
+    <Compile Include="Assets\WorldActivater.cs" />
     <Compile Include="Assets\ZombieController.cs" />
     <Compile Include="Assets\ZombieGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Foliage\BrokenVector\FreeLowPolyPack\readme.txt" />
+    <None Include="Assets\Foliage\Free Low Poly Desert Pack\Materials\Shaders\Vertex_Color_Basic.shader" />
+    <None Include="Assets\Foliage\Free Low Poly Desert Pack\Materials\Shaders\Vertex_Color_Unlit.shader" />
     <None Include="Assets\LowPolyWater_Pack\LowPoly Island\Credits.txt" />
     <None Include="Assets\LowPolyWater_Pack\Shaders\WaterShaded.shader" />
     <None Include="Assets\ProCore\Polybrush\Font\Apache License.txt" />

@@ -34,6 +34,7 @@ public class ZombieController : MonoBehaviour
         if (col.gameObject.tag.Equals("Bullet"))
         {
             health -= 20;
+            col.gameObject.SetActive(false); //bullet disappears on collision w/ zombie
             damageSoundSource.Play(); //plays damage taken sound
             gameObject.GetComponent<Renderer>().material.color = new Color((float)health / startingHealth, 0f, 0f, 0f);
         }
