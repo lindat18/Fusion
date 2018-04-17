@@ -51,7 +51,7 @@ public class GameScript : MonoBehaviour {
             updateWaveText();
         }
 
-        if(GameObject.Find("Player").GetComponent<PlayerController>().getHealth() <= 0){
+        if(GameObject.Find("Player").GetComponent<PlayerController>().getHealth() <= 0 || GameObject.Find("Player").GetComponent<PlayerController>().transform.position.y < -20){
             changeToEndScreen();
         }
 	}

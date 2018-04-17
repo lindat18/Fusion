@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     //https://answers.unity.com/questions/196381/how-do-i-check-if-my-rigidbody-player-is-grounded.html
     //https://www.youtube.com/watch?v=NgV6iJC_F3s
 
-    float speed = 10;
-    float jumpVelocity = 2;
+    float speed = 8;
+    float jumpVelocity = 1;
     public Vector3 startPos = new Vector3(0, 5, 0);
     private bool canJump = true;
 
@@ -44,16 +44,18 @@ public class PlayerController : MonoBehaviour
         string bodyStr = transform.GetChild(0).name;
         applyPowers(headStr);
         applyPowers(bodyStr);
+
+        body.velocity = new Vector3();
     }
 
     private void applyPowers(string str){
         
         if(str.ToLower().Contains("sphere")){
-            GetComponent<Shoot>().bulletCooldown = 0;
+            GetComponent<Shoot>().bulletCooldown = 0.1f;
         }else if(str.ToLower().Contains("cylinder")){
             speed = 14;
         }else if(str.ToLower().Contains("cube")){
-            jumpVelocity = 5;
+            jumpVelocity = 3;
         }else{
             Debug.LogError("No power found.");
         }
@@ -95,11 +97,12 @@ public class PlayerController : MonoBehaviour
                 Vector3 mousePos = hit.point; //mouse position in world coordinates
                 Vector3 playerPos = transform.position;
                 float deltaX = mousePos.x - playerPos.x;
+                float deltaY = mousePos.y - playerPos.y;
                 float deltaZ = mousePos.z - playerPos.z;
 
                 //Debug.Log(mousePos.x + " " + mousePos.z);
 
-                Vector3 direction = new Vector3(deltaX, 0, deltaZ);
+                Vector3 direction = new Vector3(deltaX, deltaY, deltaZ);
 
                 transform.forward = direction;
                 //transform.rotation = new Quaternion(0, 0, Mathf.Tan(deltaX / deltaZ), 0);
@@ -113,9 +116,15 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        body.velocity = new Vector3(0, body.velocity.y, 0);
-        body.velocity += transform.forward * Input.GetAxis("Vertical") * speed;
-        body.velocity += transform.right * Input.GetAxis("Horizontal") * speed;
+        if (IsGrounded())
+        {
+            Vector3 temp = transform.forward;
+            transform.forward = new Vector3(transform.forward.x, 0, transform.forward.z);
+            body.velocity = new Vector3(0, body.velocity.y, 0);
+            body.velocity += transform.forward * Input.GetAxis("Vertical") * speed;
+            body.velocity += transform.right * Input.GetAxis("Horizontal") * speed;
+            transform.forward = temp;
+        }
     }
 
     private void HandleJump()

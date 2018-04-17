@@ -42,21 +42,21 @@ namespace LowPolyWater
             int[] triangles = mesh.triangles;
 
             //Create a vector array for new vertices 
-            Vector3[] vertices = new Vector3[triangles.Length];
+            Vector3[] vertices2 = new Vector3[triangles.Length];
             
             //Assign vertices to create triangles out of the mesh
             for (int i = 0; i < triangles.Length; i++)
             {
-                vertices[i] = originalVertices[triangles[i]];
+                vertices2[i] = originalVertices[triangles[i]];
                 triangles[i] = i;
             }
 
             //Update the gameobject's mesh with new vertices
-            mesh.vertices = vertices;
+            mesh.vertices = vertices2;
             mesh.SetTriangles(triangles, 0);
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
-            this.vertices = mesh.vertices;
+            vertices = mesh.vertices;
 
             return mf;
         }

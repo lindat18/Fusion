@@ -39,7 +39,7 @@ public class Shoot : MonoBehaviour
 
         for (int i = 0; i < balls.Count; i++)
         {
-            if (Time.time - balls[i].GetComponent<BulletScript>().getSpawnTime() > 2) // bullet lasts 2 seconds
+            if (Time.time - balls[i].GetComponent<BulletScript>().getSpawnTime() > 3) // bullet lasts 3 seconds
             {
                 balls[i].GetComponent<Rigidbody>().velocity = new Vector3();//set bullet velocity to zero
                 balls[i].SetActive(false);
@@ -55,7 +55,7 @@ public class Shoot : MonoBehaviour
                 if (!balls[i].activeInHierarchy)
                 {
                     balls[i].GetComponent<BulletScript>().startBullet();
-                    balls[i].transform.position = transform.position + new Vector3(0, 1.25f, 0) + (transform.forward * 1f);
+                    balls[i].transform.position = transform.position + transform.forward + transform.up * 1.25f;
                     balls[i].transform.rotation = transform.rotation;
                     balls[i].SetActive(true);
                     Rigidbody tempRb = balls[i].GetComponent<Rigidbody>();
