@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour {
 
@@ -8,7 +9,7 @@ public class ButtonScript : MonoBehaviour {
     public Color pressedColor;
     public string playerString;
 
-    UnityEngine.UI.ColorBlock defaultColors;
+    ColorBlock defaultColors;
 
     public string getPlayerString(){
         return playerString;
@@ -18,31 +19,42 @@ public class ButtonScript : MonoBehaviour {
         return pressed;
     }
 
-    public void clicked(){
-        pressed = !pressed;
+    public void setPressed(bool b){
+        pressed = b;
 
-        if (pressed == true)
-        {
-            UnityEngine.UI.ColorBlock colors = GetComponent<UnityEngine.UI.Button>().colors;
-            colors.normalColor = pressedColor;
-            colors.highlightedColor = pressedColor;
-            colors.pressedColor = pressedColor;
-            GetComponent<UnityEngine.UI.Button>().colors = colors;
+        if(b == false){
+            GetComponent<Button>().colors = defaultColors;
         }
-        else
+    }
+
+    public void clicked(){
+        if (gameObject.activeInHierarchy)
         {
-            GetComponent<UnityEngine.UI.Button>().colors = defaultColors;
+            pressed = !pressed;
+
+            if (pressed == true)
+            {
+                ColorBlock colors = GetComponent<Button>().colors;
+                colors.normalColor = pressedColor;
+                colors.highlightedColor = pressedColor;
+                colors.pressedColor = pressedColor;
+                GetComponent<Button>().colors = colors;
+            }
+            else
+            {
+                GetComponent<Button>().colors = defaultColors;
+            }
         }
     }
 
 	// Use this for initialization
 	void Start () {
-        defaultColors = GetComponent<UnityEngine.UI.Button>().colors;
+        defaultColors = GetComponent<Button>().colors;
         pressed = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 }

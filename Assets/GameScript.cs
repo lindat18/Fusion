@@ -18,7 +18,7 @@ public class GameScript : MonoBehaviour {
 
         GameObject.Find("Player").GetComponent<Shoot>().enabled = true;
 
-        PlayerSelectionScreenListener listener = GameObject.Find("PlayerSelectionScreen").GetComponent<PlayerSelectionScreenListener>();
+        PlayerSelectionScreenListener listener = GameObject.Find("GUI").GetComponent<PlayerSelectionScreenListener>();
         playerGenerator.createCombination(GameObject.Find(listener.getPlayer1()).gameObject, GameObject.Find(listener.getPlayer2()).gameObject);
         player = playerGenerator.getPlayer();
         player.AddComponent<PlayerController>();
@@ -32,7 +32,7 @@ public class GameScript : MonoBehaviour {
         return player;
     }
 
-    private void updateWaveText(){
+    public void updateWaveText(){
         var healthText = GameObject.Find("Wave_Text").GetComponent<UnityEngine.UI.Text>();
         healthText.color = new Color(1, 0, 0);
         healthText.text = "Wave: " + wave + "\n " + generator.zombiesRemaining() + " zombies left";
@@ -46,11 +46,23 @@ public class GameScript : MonoBehaviour {
             if (wave % 4 == 0)
                 generator.maxAliveAtOnce++;
 
-            Debug.Log(generator.maxAliveAtOnce);
-
             generator.GenerateNewZombies(numStartZombies + (wave - 1) * 5);
             updateWaveText();
-            Debug.Log("Wave: " + wave);
+        }
+
+        if(GameObject.Find("Player").GetComponent<PlayerController>().getHealth() <= 0){
+            changeToEndScreen();
         }
 	}
+
+    public void changeToEndScreen(){
+        Destroy(GameObject.Find("Player").GetComponent<PlayerController>());
+        generator.Reset();
+        Destroy(playerGenerator);
+        Destroy(GameObject.Find("Player").gameObject.transform.GetChild(0).gameObject);
+        Destroy(GameObject.Find("Player").gameObject.transform.GetChild(1).gameObject);
+        GameObject.Find("Player").gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+        GameObject.Find("GUI").GetComponent<GUIScript>().switchScreen(GUIScript.GUIState.endMenu);
+        Destroy(this);
+    }
 }

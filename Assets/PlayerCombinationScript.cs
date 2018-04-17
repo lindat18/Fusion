@@ -19,18 +19,21 @@ public class PlayerCombinationScript : MonoBehaviour {
 
     public void createCombination(GameObject player1, GameObject player2){
         //pass in entire player object not just head/body
-        if(Random.value <= 0.5f){// randomizes head/body
-            body = player1.transform.GetChild(0).gameObject;//body always first
-            head = player2.transform.GetChild(1).gameObject;//head always second
+        if (Random.value <= 0.5f)
+        {// randomizes head/body
+            body = Instantiate(player1.transform.GetChild(0).gameObject);//body always first
+            head = Instantiate(player2.transform.GetChild(1).gameObject);//head always second
 
-            body.transform.position -= player1.transform.position;
-            head.transform.position -= player2.transform.position;
-        }else{
-            body = player2.transform.GetChild(0).gameObject;//body always first
-            head = player1.transform.GetChild(1).gameObject;//head always second
+            body.transform.position = new Vector3(0, 0.5f, 0);
+            head.transform.position = player2.transform.GetChild(1).gameObject.transform.position - player2.transform.position;
+        }
+        else
+        {
+            body = Instantiate(player2.transform.GetChild(0).gameObject);//body always first
+            head = Instantiate(player1.transform.GetChild(1).gameObject);//head always second
 
-            body.transform.position -= player2.transform.position;
-            head.transform.position -= player1.transform.position;
+            body.transform.position = new Vector3(0, 0.5f, 0);
+            head.transform.position = player1.transform.GetChild(1).gameObject.transform.position - player1.transform.position;
         }
 
         initPlayer();

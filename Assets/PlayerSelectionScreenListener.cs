@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerSelectionScreenListener : MonoBehaviour {
 
@@ -61,16 +62,20 @@ public class PlayerSelectionScreenListener : MonoBehaviour {
         {
             player1 = pressedButtons[0].GetComponent<ButtonScript>().getPlayerString();
             player2 = pressedButtons[1].GetComponent<ButtonScript>().getPlayerString();
+            pressedButtons[0].GetComponent<ButtonScript>().setPressed(false);
+            pressedButtons[1].GetComponent<ButtonScript>().setPressed(false);
+            pressedButtons[0].GetChild(0).GetComponent<Text>().GetComponent<PlayerInfoMessageScript>().Reset();
+            pressedButtons[1].GetChild(0).GetComponent<Text>().GetComponent<PlayerInfoMessageScript>().Reset();
             startGame();
-            Destroy(GameObject.Find("PlayerSelectionScreen"));
-            this.enabled = false;
         }
 	}
 
     void startGame(){
+        GameObject.Find("GUI").GetComponent<GUIScript>().switchScreen(GUIScript.GUIState.gameMenu);
+        GameObject.Find("World").GetComponent<WorldActivater>().generateNewWorld();
         GameObject.Find("World").AddComponent<GameScript>();
         var scoreText = GameObject.Find("Score_Text").GetComponent<UnityEngine.UI.Text>();
         scoreText.color = new Color(1, 0, 0);
-        scoreText.text = "Score: 0" ;
+        scoreText.text = "Score: 0";
     }
 }

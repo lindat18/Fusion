@@ -21,6 +21,10 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody body;
 
+    public int getHealth(){
+        return health;
+    }
+
     void Start()
     {
         if (GetComponent<Rigidbody>() != null) //init ridigbody
@@ -43,7 +47,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(col.collider is SphereCollider);
         if (col.gameObject.tag.Equals("Zombie"))
         {
-            health -= 20;
+            health -= 5;
             
             damageSoundSource.Play(); //plays damage taken sound
             updateHealth();
@@ -56,8 +60,6 @@ public class PlayerController : MonoBehaviour
         healthText.color = new Color(1, 0, 0);
         healthText.text = "Health: " + health;
     }
-
-  
 
     // FixedUpdate is called once per physics-frame
     void FixedUpdate()

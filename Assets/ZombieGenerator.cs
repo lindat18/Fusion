@@ -81,13 +81,14 @@ public class ZombieGenerator : MonoBehaviour
                 score += scoreIncrease;
                 scoreText.text = "Score: " + score;
 
+                GetComponent<GameScript>().updateWaveText();
             }
         }
     }
 
 
 
-    private void RemovePlatforms()
+    private void RemoveZombies()
     {
         foreach (GameObject obj in zombiesList)
         {
@@ -97,6 +98,7 @@ public class ZombieGenerator : MonoBehaviour
 
     public void Reset()
     {
+        RemoveZombies();
         numGeneratedTotal = 0;
         numGeneratedRecent = 0;
         numToGenerate = 0;

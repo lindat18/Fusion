@@ -14,18 +14,32 @@ public class WorldActivater : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		number = Random.Range(0,4);
 
-		if (number == 1) {
+       
+	}
+
+    public void generateNewWorld(){
+        SnowWorld.SetActive(false);
+        GrassWorld.SetActive(false);
+        DesertWorld.SetActive(false);
+
+        number = Random.Range(0, 4);
+
+        if (number == 1)
+        {
             activatedWorld = SnowWorld;
-		} else if (number == 2) {
+        }
+        else if (number == 2)
+        {
             activatedWorld = GrassWorld;
-		} else {
+        }
+        else
+        {
             activatedWorld = DesertWorld;
-		}
+        }
 
         activatedWorld.SetActive(true);
-	}
+    }
 
     public GameObject getActiveWorld(){
         return activatedWorld;

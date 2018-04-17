@@ -35,4 +35,9 @@ public class PlayerInfoMessageScript : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void Reset()
+    {
+        GetComponent<UnityEngine.UI.Text>().text = characterMessage;
+    }
 }
