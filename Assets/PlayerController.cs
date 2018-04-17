@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     //https://answers.unity.com/questions/196381/how-do-i-check-if-my-rigidbody-player-is-grounded.html
     //https://www.youtube.com/watch?v=NgV6iJC_F3s
 
-    public float speed = 10;
-    public float jumpVelocity = 2;
+    float speed = 10;
+    float jumpVelocity = 2;
     public Vector3 startPos = new Vector3(0, 5, 0);
     private bool canJump = true;
 
@@ -37,9 +37,27 @@ public class PlayerController : MonoBehaviour
  
         damageSoundSource = GameObject.Find("PlayerHit").GetComponent<AudioSource>();
         //damageSoundClip = damageSoundSource.GetComponent<AudioClip>();
-        
        
         updateHealth();
+
+        string headStr = transform.GetChild(1).name;
+        string bodyStr = transform.GetChild(0).name;
+        applyPowers(headStr);
+        applyPowers(bodyStr);
+    }
+
+    private void applyPowers(string str){
+        
+        if(str.ToLower().Contains("sphere")){
+            GetComponent<Shoot>().bulletCooldown = 0;
+        }else if(str.ToLower().Contains("cylinder")){
+            speed = 14;
+        }else if(str.ToLower().Contains("cube")){
+            jumpVelocity = 5;
+        }else{
+            Debug.LogError("No power found.");
+        }
+
     }
 
     void OnCollisionEnter(Collision col)//called when collision occurs

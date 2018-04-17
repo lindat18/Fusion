@@ -13,7 +13,7 @@ public class Shoot : MonoBehaviour
 
     public Rigidbody rb;
     public float fireSpeed = 50f;
-    public float bulletCooldown = 0f;//seconds
+    public float bulletCooldown = 0.2f;//seconds
     private float lastBullet = 0;
 
     void Start()
