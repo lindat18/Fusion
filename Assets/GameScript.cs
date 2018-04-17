@@ -40,6 +40,7 @@ public class GameScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        updateWaveText();
         if (generator.zombiesRemaining() == 0)
         {
             wave++;

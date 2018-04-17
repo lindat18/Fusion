@@ -44,6 +44,7 @@ public class PlayerCombinationScript : MonoBehaviour {
         player.transform.position = new Vector3(); // starts at (0, 0, 0)
 
         body.transform.parent = player.transform;
+        body.GetComponent<Collider>().material = (PhysicMaterial)Resources.Load("pm");
         head.transform.parent = player.transform;
     }
 	

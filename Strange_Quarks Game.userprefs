@@ -1,11 +1,7 @@
 ﻿<Properties StartupConfiguration="{F15433EA-3F90-2E82-4080-786255633F69}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LowPolyWater_Pack/Scripts/LowPolyWater.cs">
     <Files>
-      <File FileName="Assets/ButtonScript.cs" Line="26" Column="59" />
-      <File FileName="Assets/PlayerInfoMessageScript.cs" Line="39" Column="11" />
-      <File FileName="Assets/PlayerSelectionScreenListener.cs" Line="75" Column="84" />
-      <File FileName="Assets/WorldActivater.cs" Line="21" Column="27" />
-      <File FileName="Assets/PlayerController.cs" Line="48" Column="25" />
+      <File FileName="Assets/LowPolyWater_Pack/Scripts/LowPolyWater.cs" Line="39" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
