@@ -54,6 +54,7 @@
      <Compile Include="Assets\BulletScript.cs" />
      <Compile Include="Assets\ButtonScript.cs" />
      <Compile Include="Assets\GameScript.cs" />
+     <Compile Include="Assets\GUIScript.cs" />
      <Compile Include="Assets\LowPolyWater_Pack\Scripts\LowPolyWater.cs" />
      <Compile Include="Assets\PlayerCombinationScript.cs" />
      <Compile Include="Assets\PlayerController.cs" />
