@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 startPos = new Vector3(0, 5, 0);
     private bool canJump = true;
 
-    int health = 100;
+    public int health = 250;
 
     //public AudioClip damageSoundClip;
     public AudioSource damageSoundSource;

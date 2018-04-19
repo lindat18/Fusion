@@ -23,7 +23,7 @@ public class WorldActivater : MonoBehaviour {
         GrassWorld.SetActive(false);
         DesertWorld.SetActive(false);
 
-        number = Random.Range(0, 4);
+        number = Random.Range(0, 3);
 
         if (number == 1)
         {
